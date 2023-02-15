@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Item</title>
+  <meta name="My profile" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #002825;
+    }
+    @media screen and (max-width: 650px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .btn {
+      background-color: #128277;
+      color: white;
+      padding: 20px 20px 20px;
+      margin: 0 auto;
+      display: block;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      width: 24%;
+      opacity: 0.8;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      opacity: 1;
+    }
+
+    a {
+      color: #27b9ab;
+    }
+    .modal {
+      background: #3a3939;
+      width: 74%;
+      height: 50px;
+      border-radius: 7px;
+      text-align: left;
+      color: #d7d7d7;
+      margin-left: 13%;
+      margin-bottom: 2%;
+    }
+    input[type=text]:focus, input[type=number]:focus {
+      background-color: #494848;
+      outline: none;
+      display: block;
+    }
+    .form__error {
+      color: #c20d0d;
+      text-align: center;
+      font-size: 15px;
+      display: block;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      display: none;
+    }
+    input:valid:not(:placeholder-shown) {
+      border-color: green;
+    }
+
+    input:invalid:not(:placeholder-shown) {
+      border-color: #ff1f1f;
+    }
+    input:invalid:not(:placeholder-shown) + .form__error {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h1 style="text-align: center; color: #d7d7d7; font-size: 80px">EDIT ITEM</h1>
+  <div>
+    <form method="post" enctype="multipart/form-data">
+      <input class="modal" name="name" th:value="${item.get().getName()}" type="text"  required>
+      <span class="form__error">Enter correct value</span>
+      <input class="modal" name="description" th:value="${item.get().getDescription()}" type="text" required>
+      <span class="form__error">Enter correct value</span>
+      <input class="modal" name="buyprice" th:value="${item.get().getBuyPrice()}"  type="number" th:min="1" required>
+      <span class="form__error">Minimum value: 1</span>
+      <input class="modal" name="sellprice" th:value="${item.get().getSellPrice()}" type="number" th:min="0" min="0" required>
+      <span class="form__error">Minimum value: 0</span>
+      <button class="btn" type="submit">Edit</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

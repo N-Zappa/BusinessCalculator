@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Business Calculator</title>
+    <meta name="My profile" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #002825;
+        }
+        @media screen and (max-width: 650px) {
+            .header a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+        .button {
+            background-color: #0e645c;
+            color: white;
+            padding: 20px 20px 20px;
+            margin: 0 auto;
+            display: block;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            opacity: 1;
+        }
+
+        a {
+            color: #27b9ab;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1 style="color: #B9C4C9;text-align: center; font-size: 50px">STATISTIC OF ALL TIME</h1>
+    <h2 style="text-align:center; color: #b60202; font-size: 40px" th:text="'Spent : ' + ${BuyCounter} + ' BYN | '+ ${DollarBuy} + '$'"></h2>
+    <h2 style="text-align:center; color: #22ff00; font-size: 40px" th:text="'Earned: ' + ${SellCounter} + ' BYN | ' + ${DollarSell + '$'}"></h2>
+    <h2 style="text-align:center; color: #22ff00; font-size: 40px" th:text="'Profit: ' + ${IncomeCounter} + ' BYN | ' + ${DollarIncome}+'$'"></h2>
+    <a href="/business/calc" style="width: 25%; margin-bottom: 5%" class="button">Back</a>
+</div>
+</body>
+</html>
